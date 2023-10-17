@@ -9,6 +9,7 @@ import Layout from './Layout';
 import Home from './Pages/Home';
 import Error from './Pages/Error';
 import AddProduct from './Pages/AddProduct';
+import MyCard from './Pages/MyCard';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
    },
    {
     path:"/mycart",
-    element:<
+    element:<MyCard></MyCard>
    }
   ]
   },
