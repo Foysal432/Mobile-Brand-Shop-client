@@ -10,6 +10,7 @@ import Home from './Pages/Home';
 import Error from './Pages/Error';
 import AddProduct from './Pages/AddProduct';
 import MyCard from './Pages/MyCard';
+import Login from './Pages/Login';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
    {
     path:"/mycart",
     element:<MyCard></MyCard>
+   },
+   {
+    path:"/login",
+    element:<Login></Login>
    }
   ]
   },
