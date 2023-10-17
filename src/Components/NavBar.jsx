@@ -1,5 +1,14 @@
+import {  useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../assets/AuthProvider";
+import Swal from "sweetalert2";
 const NavBar = () => {
+    const {user,logout}=useContext(AuthContext)
+    const handlelogout =()=>{
+        logout()
+        .then()
+        .catch()
+    }
     return (
         <div>
             <div className="navbar bg-slate-300 ">
@@ -19,15 +28,26 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-2 text-2xl">
-                        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-orange-500 underline mx-5" : "mx-5 font-bold"} to="/" >Home</NavLink>
-                        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-orange-500 underline mx-5" : "mx-5 font-bold"} to="/addproduct"> Add Product</NavLink>
-                        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-orange-500 underline mx-5" : "mx-5 font-bold"} to="/mycart">My Cart</NavLink>
+                        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-orange-500 underline mx-5 btn" : "mx-5 font-bold btn"} to="/" >Home</NavLink>
+                        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-orange-500 underline mx-5 btn" : "mx-5 font-bold btn"} to="/addproduct"> Add Product</NavLink>
+                        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-orange-500 underline mx-5 btn" : "mx-5 font-bold btn"} to="/mycart">My Cart</NavLink>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <button className="btn bg-gray-400 text-white">
-                        <Link to='/login'>Log in</Link>
+                {
+                    user ? <> 
+                  
+                    <p>{user.displayName}</p> 
+                    <img className="w-8 mx-4 rounded-lg" src={user.photoURL} alt="" /> 
+                    <button onClick={handlelogout} className="btn bg-orange-500 text-white">
+                   Log Out
                     </button>
+                    </>  
+                    : 
+                    <button className="btn bg-orange-500 text-white">
+                    <Link to='/login'>Log in</Link>
+                        </button>
+                }
                 </div>
             </div>
         </div>
