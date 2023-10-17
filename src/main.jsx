@@ -8,6 +8,7 @@ import {
 import Layout from './Layout';
 import Home from './Pages/Home';
 import Error from './Pages/Error';
+import AddProduct from './Pages/AddProduct';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,8 +18,14 @@ const router = createBrowserRouter([
       path:'/',
       element:<Home></Home>
     },
-
-    
+   {
+    path:"/addproduct",
+    element:<AddProduct></AddProduct>
+   },
+   {
+    path:"/mycart",
+    element:<
+   }
   ]
   },
 ]);
