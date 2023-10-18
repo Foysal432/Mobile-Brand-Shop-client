@@ -6,7 +6,13 @@ const NavBar = () => {
     const {user,logout}=useContext(AuthContext)
     const handlelogout =()=>{
         logout()
-        .then()
+        .then(
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+              )
+        )
         .catch()
     }
     return (

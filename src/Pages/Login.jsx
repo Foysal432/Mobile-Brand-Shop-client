@@ -4,7 +4,7 @@ import { AuthContext } from "../assets/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
-    const {googleSingin}=useContext(AuthContext)
+    const {googleSingin,singinemail}=useContext(AuthContext)
     // for google
     const handleGoogle=()=>{
 googleSingin()
@@ -19,7 +19,66 @@ googleSingin()
 .catch(error=>{
     console.error(error);
 })
+
     }
+    // log in email and password
+const handlelogin = e =>{
+  e.preventDefault();
+  const email =e.target.email.value;
+    const password=e.target.password.value;
+    console.log(email,password);
+    if (password.length < 6) {
+      return Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong Your password must be 6 character!',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
+
+  }
+    //    uppercase validate
+    else if (!/[A-Z]/.test(password)){
+      return  Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Your Password Must be one UPPERCASE',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
+  }
+  // lower case 
+  else if (!/[a-z]/.test(password)){
+      return  Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Your Password Must be one lowercase',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
+  }
+  // at list one digit
+  else if (!/[0-9]/.test(password)){
+      return  Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Your Password Must be one Digit',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
+  }
+  // A Special Character
+  else if (!/[>>@//!#$%&?*<<]/.test(password)){
+      return  Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Your Password Must be One SpecialCharacter',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
+  }
+  // sing in with email and password
+  singinemail(email,password)
+  .then(result=>{
+    console.log(result.user);
+  })
+
+}
     return (
         <div className="bg-gray-50 min-h-screen  flex items-center justify-center">
         {/* login container */}
@@ -29,7 +88,7 @@ googleSingin()
             <h2 className="font-bold text-4xl text-[#002D74]">Login</h2>
             <p className="text-xs mt-4 text-[#002D74]">If you are already a member, easily log in</p>
       
-            <form action="" className="flex flex-col gap-4">
+            <form onSubmit={handlelogin} action="" className="flex flex-col gap-4">
                 
              <div className="mt-8 w-full ">
                 <p className="text-2xl font-bold">Email</p>
