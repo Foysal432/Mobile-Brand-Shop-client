@@ -13,6 +13,8 @@ import MyCard from './Pages/MyCard';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import AuthProvider from './assets/AuthProvider';
+import PrivateRoute from './PrivateRoute';
+import Form from './Components/Form';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,11 +26,11 @@ const router = createBrowserRouter([
     },
    {
     path:"/addproduct",
-    element:<AddProduct></AddProduct>
+    element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>
    },
    {
     path:"/mycart",
-    element:<MyCard></MyCard>
+    element:<PrivateRoute><MyCard></MyCard></PrivateRoute>
    },
    {
     path:"/login",
@@ -37,6 +39,10 @@ const router = createBrowserRouter([
    {
     path:'/register',
     element:<Register></Register>
+   },
+   {
+    path:"/form",
+    element:<Form></Form>
    }
   ]
   },
