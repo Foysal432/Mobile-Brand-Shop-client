@@ -8,8 +8,8 @@ const NavBar = () => {
         logout()
         .then(
             Swal.fire(
-                'Good job!',
-                'You clicked the button!',
+                'Good!',
+                'You Sining out successfull',
                 'success'
               )
         )
