@@ -15,6 +15,8 @@ import Register from './Pages/Register';
 import AuthProvider from './assets/AuthProvider';
 import PrivateRoute from './PrivateRoute';
 import Form from './Components/Form';
+import Branditem from './Pages/Branditem';
+import Details from './Components/Details';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,11 +28,12 @@ const router = createBrowserRouter([
     },
    {
     path:"/addproduct",
-    element:<AddProduct></AddProduct>
+    element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>
    },
    {
     path:"/mycart",
-    element:<PrivateRoute><MyCard></MyCard></PrivateRoute>
+    element:<MyCard></MyCard>,
+    loader:()=>fetch('http://localhost:5000/items')
    },
    {
     path:"/login",
@@ -43,6 +46,16 @@ const router = createBrowserRouter([
    {
     path:"/form",
     element:<Form></Form>
+   },
+   {
+    path:'/branditem/:brand',
+    element:<Branditem></Branditem>,
+    loader:({params})=>fetch(`http://localhost:5000/items/${params.brand}`)
+   },
+   {
+    path:'/details/:id',
+    element:<Details></Details>,
+    loader:({params})=>fetch()
    }
   ]
   },
