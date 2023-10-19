@@ -26,7 +26,7 @@ const NavBar = () => {
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <NavLink className="" to="/">Home</NavLink>
                             <NavLink className="mx-5" to="/addproduct">Add Product</NavLink>
-                            <NavLink to='/mycard'>My Cart</NavLink>
+                            <NavLink to={`/mycart/${user.email}`}>My Cart</NavLink>
                         </ul>
                     </div>
                  <img src="https://i.ibb.co/2sYRLtr/logo.webp" alt="" />

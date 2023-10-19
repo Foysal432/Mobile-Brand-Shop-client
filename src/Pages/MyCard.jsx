@@ -1,8 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 
 const MyCard = () => {
-    const items = useLoaderData()
-    console.log(items);
+    const addcard = useLoaderData()
+    console.log(addcard);
     return (
         <div>
             <h1>My Card</h1>

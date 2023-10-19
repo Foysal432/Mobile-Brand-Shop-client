@@ -17,6 +17,7 @@ import PrivateRoute from './PrivateRoute';
 import Form from './Components/Form';
 import Branditem from './Pages/Branditem';
 import Details from './Components/Details';
+import Updates from './Components/Updates';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,9 +32,9 @@ const router = createBrowserRouter([
     element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>
    },
    {
-    path:"/mycart",
+    path:'/mycart',
     element:<MyCard></MyCard>,
-    loader:()=>fetch('http://localhost:5000/items')
+    loader:({params})=>fetch(`http://localhost:5000/addproduct/${params.email}`)
    },
    {
     path:"/login",
@@ -53,9 +54,14 @@ const router = createBrowserRouter([
     loader:({params})=>fetch(`http://localhost:5000/items/${params.brand}`)
    },
    {
-    path:'/details/:id',
-    element:<Details></Details>,
-    loader:({params})=>fetch()
+    path:'/details/:detail',
+    element:<PrivateRoute><Details></Details></PrivateRoute>,
+    loader:({params})=>fetch(`http://localhost:5000/items1/${params.detail}`)
+   },
+   {
+    path:'/update/:id',
+    element:<PrivateRoute><Updates></Updates></PrivateRoute>,
+    loader:({params})=>fetch(`http://localhost:5000/update/${params.id}`)
    }
   ]
   },
