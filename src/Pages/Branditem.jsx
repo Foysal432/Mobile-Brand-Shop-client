@@ -30,7 +30,7 @@ const Branditem = () => {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide><img src="https://i.ibb.co/gDVbGzm/apple-laptop-store-banner.png" alt="" /></SwiperSlide>
+        <SwiperSlide><img className='w-full h-[400px]' src="https://i.ibb.co/gDVbGzm/apple-laptop-store-banner.png" alt="" /></SwiperSlide>
         <SwiperSlide><img className='w-full h-[400px]' src="https://i.ibb.co/f2K89c7/Alpha-7-RV-Website-Banner-XWqj-Yld.jpg" alt="" /></SwiperSlide>
         <SwiperSlide><img className='w-full h-[400px]' src="https://i.ibb.co/JFWHknL/2d8e7d11982290-5603273f86da7.jpg" alt="" /></SwiperSlide>
         <SwiperSlide><img className='w-full h-[400px]' src="https://i.ibb.co/MGtYVYF/CO-Banner-Blog-v3-2048x2048.webp" alt="" /></SwiperSlide>

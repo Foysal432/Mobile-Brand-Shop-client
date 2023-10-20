@@ -4,6 +4,7 @@ import { AuthContext } from "../assets/AuthProvider";
 import Swal from "sweetalert2";
 const NavBar = () => {
     const {user,logout}=useContext(AuthContext)
+    const email =user && user.email;
     const handlelogout =()=>{
         logout()
         .then(
@@ -26,7 +27,7 @@ const NavBar = () => {
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <NavLink className="" to="/">Home</NavLink>
                             <NavLink className="mx-5" to="/addproduct">Add Product</NavLink>
-                            <NavLink to={`/mycart/${user.email}`}>My Cart</NavLink>
+                            <Link >My Cart</Link>
                         </ul>
                     </div>
                  <img src="https://i.ibb.co/2sYRLtr/logo.webp" alt="" />
@@ -36,7 +37,7 @@ const NavBar = () => {
                     <ul className="menu menu-horizontal px-2 text-2xl">
                         <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-orange-500 underline mx-5 btn" : "mx-5 font-bold btn"} to="/" >Home</NavLink>
                         <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-orange-500 underline mx-5 btn" : "mx-5 font-bold btn"} to="/addproduct"> Add Product</NavLink>
-                        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-orange-500 underline mx-5 btn" : "mx-5 font-bold btn"} to="/mycart">My Cart</NavLink>
+                        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-orange-500 underline mx-5 btn" : "mx-5 font-bold btn"} to={`/mycart/${email}`}>My Cart</NavLink>
                     </ul>
                 </div>
                 <div className="navbar-end">

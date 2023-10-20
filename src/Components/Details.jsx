@@ -7,6 +7,7 @@ const Details = () => {
     const {user} = useContext(AuthContext)
     const email =user && user.email;
     const details = useLoaderData()
+    
     const handleadd = () =>{
       const data = {details,email}
       console.log(data);
@@ -23,7 +24,7 @@ const Details = () => {
            if (data.insertedId) {
             Swal.fire(
                 'Good job!',
-                'You Added A Product!',
+                'You product is Added in My Cart Page!',
                 'success'
               )
            }

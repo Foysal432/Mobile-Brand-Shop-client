@@ -32,8 +32,8 @@ const router = createBrowserRouter([
     element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>
    },
    {
-    path:'/mycart',
-    element:<MyCard></MyCard>,
+    path:"/mycart/:email",
+    element:<PrivateRoute><MyCard></MyCard></PrivateRoute>,
     loader:({params})=>fetch(`http://localhost:5000/addproduct/${params.email}`)
    },
    {
