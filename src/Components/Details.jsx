@@ -7,9 +7,11 @@ const Details = () => {
     const {user} = useContext(AuthContext)
     const email =user && user.email;
     const details = useLoaderData()
-    
+    const {image,name,description,rating,price,type,brand}= details
+   
     const handleadd = () =>{
-      const data = {details,email}
+    //   const data = {details,email}
+      const data ={image,name,description,rating,price,type,brand,email}
       console.log(data);
          // send data to the server
          fetch('http://localhost:5000/addproduct',{

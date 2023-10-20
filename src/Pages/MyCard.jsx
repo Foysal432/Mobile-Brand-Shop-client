@@ -1,46 +1,101 @@
 import { Link, useLoaderData } from "react-router-dom";
+import AddCard from "../Components/AddCard";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../assets/AuthProvider";
+import Swal from "sweetalert2";
 
 const MyCard = () => {
-    const addcard = useLoaderData()
-    const cart = (addcard.details);
-  console.log(cart);
+//     const addcard = useLoaderData()
+// console.log(addcard);
+const {user}=useContext(AuthContext)
+console.log(user.email);
+const [datas,setData] =useState([])
+// const [Duser, setUser]=useState(datas)
+useEffect(()=>{
+    fetch(`http://localhost:5000/addproduct/${user.email}`)
+    .then(res=>res.json())
+    .then(data=>setData(data))
+},[user])
+// console.log(datas);
+const handleDelate =_id =>{
+
+
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`http://localhost:5000/addproduct/${_id}`,{
+                method:'DELETE',
+            
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
+                if (data.deletedCount > 0 ) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your Product has been deleted.',
+                        'success'
+                      )
+                    const remaining =datas.filter(users=>users._id !==_id)
+                    setData(remaining)
+                  
+                }
+            })
+        }
+      })
+
+
+
+
+console.log(_id);
+// fetch(`http://localhost:5000/addproduct/${_id}`,{
+//     method:'DELETE',
+
+// })
+// .then(res=>res.json())
+// .then(data=>{
+//     console.log(data);
+//     if (data.deletedCount > 0 ) {
+//         Swal.fire(
+//             'Deleted!',
+//             'Your file has been deleted.',
+//             'success'
+//           )
+//         const remaining =datas.filter(users=>users._id !==_id)
+//         setData(remaining)
+      
+//     }
+// })
+}
     return (
         <div>
-            <div className="  bg-gray-400 w-1/2 mx-auto border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <a href="#">
-        <img className="p-8 h-72 w-full  rounded-t-lg" src={cart.image} alt="product image" />
-    </a>
-    <div className="px-4 pb-5">
-        <div className="grid grid-cols-2 gap-2 text-xl font-semibold">
-        <h1><span className="font-bold text-2xl">Name:</span> {cart.name}</h1>
-        <h1><span className="font-bold text-2xl">Brand:</span> {cart.brand}</h1>
-        <h1><span className="font-bold text-2xl">Type: </span>{cart.type}</h1>
-        <h1><span className="font-bold text-2xl">Price: </span>{cart.price}$</h1>
-        </div>
-        <div className="flex items-center mt-2.5 mb-5">
-            <svg className="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-            </svg>
-            <svg className="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-            </svg>
-            <svg className="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-            </svg>
-            <svg className="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-            </svg>
-            <svg className="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-            </svg>
-            <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{cart.rating}</span>
-        </div>
-        <div className=" w-full ">
-            <Link ><button className="text-white w-full  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Delete</button></Link>
-         
-        </div>
-    </div>
-</div>
+         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mt-10">
+           {
+            datas.map(data=> <div key={data._id}>
+                <div className="card  bg-base-100 shadow-xl">
+                    <figure><img className="h-56" src={data.image} alt="Shoes" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title text-2xl font-bold">Brand: {data.brand}</h2>
+                        <h1 className="text-2xl font-bold">Name: {data.name}</h1>
+                        <h1><span className="text-2xl font-bold">Details:</span> {data.description}</h1>
+                        <h1 className="text-2xl font-bold">Rrating:{data.rating}</h1>
+                        <p className="text-2xl font-bold">Price: {data.price}$</p>
+                        <div className="card-actions justify-end">
+                            <button onClick={()=>handleDelate(data._id)} className="btn btn-primary w-full">Delate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            )
+           }
+         </div>
         </div>
     );
 };

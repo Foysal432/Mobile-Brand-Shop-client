@@ -16,6 +16,9 @@ const NavBar = () => {
         )
         .catch()
     }
+    // if (!loading) {
+    //     return <h1>Loading</h1>
+    // }
     return (
         <div>
             <div className="navbar bg-slate-300 ">
@@ -37,7 +40,8 @@ const NavBar = () => {
                     <ul className="menu menu-horizontal px-2 text-2xl">
                         <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-orange-500 underline mx-5 btn" : "mx-5 font-bold btn"} to="/" >Home</NavLink>
                         <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-orange-500 underline mx-5 btn" : "mx-5 font-bold btn"} to="/addproduct"> Add Product</NavLink>
-                        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-orange-500 underline mx-5 btn" : "mx-5 font-bold btn"} to={`/mycart/${email}`}>My Cart</NavLink>
+                        <NavLink to="mycart" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-orange-500 underline mx-5 btn" : "mx-5 font-bold btn"}>My Cart</NavLink>
+                        
                     </ul>
                 </div>
                 <div className="navbar-end">
