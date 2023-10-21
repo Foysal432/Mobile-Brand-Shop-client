@@ -2,7 +2,7 @@
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 bg-slate-400 rounded-md text-base-content">
+            <footer className="footer p-10 bg-slate-400 text-white rounded-md">
   <nav>
     <header className="footer-title">Services</header> 
     <a className="link link-hover">New Phone</a> 
@@ -26,7 +26,7 @@ const Footer = () => {
     <img src="https://i.ibb.co/2sYRLtr/logo.webp" alt="" />
     <fieldset className="form-control w-80">
       <label className="label">
-        <span className="label-text">Enter your email address</span>
+        <span className="label-text text-white">Enter your email address</span>
       </label> 
       <div className="relative">
         <input type="text" placeholder="youremail@gmail.com" className="input input-bordered w-full pr-16" /> 

@@ -82,7 +82,7 @@ const Updates = () => {
                         <h1 className="text-2xl font-bold p-2 text-center">Description:</h1>
                         <input type="text" placeholder="description" defaultValue={description} name="description" className="input input-bordered input-success w-full" />
                     </div>
-                    <input className="btn btn-secondary w-full bg-orange-500" type="submit" value="Update Now" />
+                    <input className="btn btn-secondary w-full bg-orange-500" type="submit" value="Submit Now" />
                 </form>
             </div>
         </div>

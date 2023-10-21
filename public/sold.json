@@ -3,37 +3,43 @@
         "id":1,
       "image": "https://i.ibb.co/mbt4G31/Apple-iphone13-hero-09142021-inline-jpg-large.jpg",
       "title": "I Phone-13",
-      "price":"200"
+      "price":"200",
+      "rating":"3"
     },
     {
         "id":2,
       "image": "https://i.ibb.co/X49BthR/Sony-Xperia-Pro-I-300x300.jpg",
       "title": "Sony-Xperia-Pro",
-      "price":"300"
+      "price":"300",
+      "rating":"2"
     },
     {
         "id":3,
       "image": "https://i.ibb.co/qrjTGCJ/download-A7-Camera-1.jpg",
       "title": "Sony-A7-camera",
-      "price":"100"
+      "price":"100",
+      "rating":"4"
     },
     {
         "id":4,
       "image": "https://i.ibb.co/Q6gDw17/samsung-s-10.jpg",
       "title": "Samsung-s-10",
-      "price":"250"
+      "price":"250",
+      "rating":"5"
     },
     {
         "id":5,
       "image": "https://i.ibb.co/dM0ttDC/download-1-sonyviyo.jpg",
       "title": "Sony vio",
-      "price":"100"
+      "price":"100",
+      "rating":"3"
     },
     {
         "id":6,
       "image": "https://i.ibb.co/QpjcvcV/giant-238814samsung-galaxy-pro.jpg",
       "title": "Samsung Book",
-      "price":"150"
+      "price":"150",
+      "rating":"5"
     }
   ]
   

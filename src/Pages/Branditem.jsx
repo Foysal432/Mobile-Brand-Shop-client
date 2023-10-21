@@ -20,9 +20,10 @@ const Branditem = () => {
     
     return (
         <div>  
-           
-            <>
-      <Swiper
+        <div className='mt-10'>
+        {
+            loaderBrands.length == 0 ? <p className='text-4xl font-bold text-center flex justify-center items-center'>No data </p>: <div> 
+ <Swiper
         pagination={{
           type: 'progressbar',
         }}
@@ -40,14 +41,14 @@ const Branditem = () => {
         <SwiperSlide><img className='w-full h-[400px]' src="https://i.ibb.co/p4s3rRv/HTCOne.png" alt="" /></SwiperSlide>
        
       </Swiper>
-    </>
-        <div className='mt-10'>
-        {
-            loaderBrands.length == 0 ? <p className='text-4xl font-bold text-center flex justify-center items-center'>No data </p>: <div className='grid md:grid-cols-2 gap-4 max-w-5xl mx-auto'>
+
+           <div className='grid md:grid-cols-2 gap-4 max-w-5xl mx-auto'>
             {
                 loaderBrands?.map(data=><BrandsDetails key={data._id} BrandsDetails={data} ></BrandsDetails>)
             }
         </div>
+
+            </div> 
            }
         </div>
         </div>
