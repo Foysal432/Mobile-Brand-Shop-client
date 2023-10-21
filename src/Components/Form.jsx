@@ -10,7 +10,7 @@ console.log(brand,image);
 const newBrands ={brand,image}
 console.log(newBrands);
 // send data to the server
-fetch('http://localhost:5000/brands',{
+fetch('https://assingment-10-server-xi.vercel.app/brands',{
     method:'POST',
     headers:{
         'content-type':'application/json'

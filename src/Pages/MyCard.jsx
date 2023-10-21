@@ -12,7 +12,7 @@ console.log(user.email);
 const [datas,setData] =useState([])
 // const [Duser, setUser]=useState(datas)
 useEffect(()=>{
-    fetch(`http://localhost:5000/addproduct/${user.email}`)
+    fetch(`https://assingment-10-server-xi.vercel.app/addproduct/${user.email}`)
     .then(res=>res.json())
     .then(data=>setData(data))
 },[user])
@@ -30,7 +30,7 @@ const handleDelate =_id =>{
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-            fetch(`http://localhost:5000/addproduct/${_id}`,{
+            fetch(`https://assingment-10-server-xi.vercel.app/addproduct/${_id}`,{
                 method:'DELETE',
             
             })

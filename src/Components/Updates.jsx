@@ -20,7 +20,7 @@ const Updates = () => {
         const allItem ={image,name,brand,type,price,rating,description}
         console.log(allItem);
        // send data to the server
-       fetch(`http://localhost:5000/update/${_id}`,{
+       fetch(`https://assingment-10-server-xi.vercel.app/update/${_id}`,{
         method:'PUT',
         headers:{
             'content-type':'application/json'

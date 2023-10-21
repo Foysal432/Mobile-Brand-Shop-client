@@ -14,7 +14,7 @@ const Details = () => {
       const data ={image,name,description,rating,price,type,brand,email}
       console.log(data);
          // send data to the server
-         fetch('http://localhost:5000/addproduct',{
+         fetch('https://assingment-10-server-xi.vercel.app/addproduct',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

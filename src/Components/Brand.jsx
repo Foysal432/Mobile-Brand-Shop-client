@@ -4,7 +4,7 @@ import ABrands from './ABrands';
 const Brand = () => {
     const [brands,setBrands] =useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/brands')
+        fetch('https://assingment-10-server-xi.vercel.app/brands')
         .then(res=>res.json())
         .then(data=>setBrands(data))
     },[])

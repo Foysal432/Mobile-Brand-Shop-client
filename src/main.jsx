@@ -52,17 +52,17 @@ const router = createBrowserRouter([
    {
     path:'/branditem/:brand',
     element:<Branditem></Branditem>,
-    loader:({params})=>fetch(`http://localhost:5000/items/${params.brand}`)
+    loader:({params})=>fetch(`https://assingment-10-server-xi.vercel.app/items/${params.brand}`)
    },
    {
     path:'/details/:detail',
     element:<PrivateRoute><Details></Details></PrivateRoute>,
-    loader:({params})=>fetch(`http://localhost:5000/items1/${params.detail}`)
+    loader:({params})=>fetch(`https://assingment-10-server-xi.vercel.app/items1/${params.detail}`)
    },
    {
     path:'/update/:id',
     element:<PrivateRoute><Updates></Updates></PrivateRoute>,
-    loader:({params})=>fetch(`http://localhost:5000/update/${params.id}`)
+    loader:({params})=>fetch(`https://assingment-10-server-xi.vercel.app/update/${params.id}`)
    }
   ]
   },
