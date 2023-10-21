@@ -10,7 +10,8 @@ const Asold = ({asold}) => {
   }
     return (
         <div>
-            <div className="card border">
+     <div data-aos="zoom-in-right"  data-aos-easing="linear"
+     data-aos-duration="1500" className="card border">
   <figure><img className='h-52' src={asold.image} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">{asold.title}</h2>

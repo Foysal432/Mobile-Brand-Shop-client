@@ -20,7 +20,9 @@ const Features = () => {
                 {
                     features.map(feature => <>
 
-                        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <div data-aos="zoom-in-down"
+                            data-aos-easing="linear"
+                            data-aos-duration="1700" className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <a href="#">
                                 <img className="p-8 rounded-t-lg" src={feature.image} alt="product image" />
                             </a>

@@ -41,7 +41,8 @@ const Details = () => {
     return (
         <div>
 
-            <div className="card mx-auto w-3/4 lg:card-side bg-base-100 shadow-xl">
+            <div data-aos="flip-right"  data-aos-easing="linear"
+     data-aos-duration="1500" className="card mx-auto w-3/4 lg:card-side bg-base-100 shadow-xl">
                 <figure><img src={details.image} alt="Album" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{details.description}</h2>

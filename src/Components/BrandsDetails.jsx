@@ -12,7 +12,8 @@ const BrandsDetails = ({BrandsDetails}) => {
     const {_id,type,rating,price,name,image,brand} = BrandsDetails
     return (
         <div>
-<div className=" h-[500px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div data-aos="zoom-out-right"  data-aos-easing="linear"
+     data-aos-duration="1300" className=" h-[500px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <a href="#">
         <img className="p-8 h-72 rounded-t-lg" src={image} alt="product image" />
     </a>
